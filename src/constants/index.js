@@ -8,6 +8,15 @@ export const MONGODB_VARS = {
   MONGODB_URL: 'MONGODB_URL',
   MONGODB_DB: 'MONGODB_DB',
 };
+export const SMTP = {
+  SMTP_HOST: 'SMTP_HOST',
+  SMTP_PORT: 'SMTP_PORT',
+  SMTP_USER: 'SMTP_USER',
+  SMTP_PASSWORD: 'SMTP_PASSWORD',
+  SMTP_FROM: 'SMTP_FROM',
+  JWT_SECRET: 'JWT_SECRET',
+};
+
 export const SORT_ORDERS = { ASC: 'asc', DESC: 'desc' };
 
 export const CONTACT_TYPE = {
