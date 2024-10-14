@@ -6,7 +6,11 @@ import crypto from 'node:crypto';
 import {
   ACCESS_TOKEN_LIVE_TIME,
   REFRESH_TOKEN_LIVE_TIME,
+  SMTP,
 } from '../constants/index.js';
+import jwt from 'jsonwebtoken';
+import { env } from '../utils/env.js';
+import { sendEmail } from '../utils/sendMail.js';
 
 export const registerUserService = async (payload) => {
   let user = await UsersCollection.findOne({ email: payload.email }); // check unique email in base
@@ -99,12 +103,11 @@ export const requestResetToken = async (email) => {
       sub: user._id,
       email,
     },
-    env('JWT_SECRET'),
+    env(SMTP.JWT_SECRET),
     {
       expiresIn: '15m',
     },
   );
-
   await sendEmail({
     from: env(SMTP.SMTP_FROM),
     to: email,
