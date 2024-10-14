@@ -34,11 +34,11 @@ authRouter.post('/refresh', ctrlWrapper(refreshUserSessionController));
 
 authRouter.post('/logout', ctrlWrapper(logoutUserController));
 
-authRouter.post(
-  '/request-reset-password-token',
-  validateBody(requestResetPassTokenValidSchema),
-  requestResetEmailController,
-);
+// authRouter.post(
+//   '/request-reset-password-token',
+//   validateBody(requestResetPassTokenValidSchema),
+//   requestResetEmailController,
+// );
 
 // authRouter.post(
 //   '/reset-password',
@@ -46,10 +46,10 @@ authRouter.post(
 //   ctrlWrapper(requestResetEmailController),
 // );
 
-// authRouter.post(
-//   '/request-reset-email',
-//   validateBody(requestResetEmailValidSchema),
-//   ctrlWrapper(requestResetEmailController),
-// );
+authRouter.post(
+  '/request-reset-email',
+  validateBody(requestResetEmailValidSchema),
+  ctrlWrapper(requestResetEmailController),
+);
 
 export default authRouter;
